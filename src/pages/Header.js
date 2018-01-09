@@ -14,6 +14,7 @@ class Header extends Component {
                     <p className="animated slideInLeft">A programmer with a passion for web development and design.</p>
                     <p className="animated slideInLeft"><a href="https://drive.google.com/file/d/1CGJ4aMMwBTuYf_hlYG0zAHt9QcoPTdV9/view">Resume</a>
                         <a href="https://github.com/Holben888">GitHub</a>
+                        <a href="mailto:holben888@gmail.com">Contact</a>
                     </p>
                 </div>
             </header>

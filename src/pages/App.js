@@ -144,7 +144,7 @@ class App extends Component {
             )
           })}
         </div>
-        <footer className="App-footer">Created using ReactJS. <a href="">View on GitHub</a></footer>
+        <footer className="App-footer">Created using ReactJS. <a href="https://github.com/Holben888/personal-website">View on GitHub</a></footer>
       </div>
     );
   }

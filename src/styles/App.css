@@ -1,0 +1,74 @@
+
+@import url('https://fonts.googleapis.com/css?family=Lato:900|Merriweather:300i');
+
+* {
+  box-sizing: border-box;
+}
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  position: relative;
+  z-index: 999 !important;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  padding: 20px;
+  overflow: hidden;
+  color: white;
+  box-shadow: 0 1px 15px #333;
+  background: url('/images/dark-leather-header.jpeg') no-repeat bottom center;
+}
+.App-header div {
+  width: 45vh;
+  height: 25vh;
+  overflow: hidden;
+}
+
+.App-header div * {
+  animation-delay: 0.5s;
+  -webkit-animation-delay: 0.5s;
+  -moz-animation-delay: 0.5s;
+}
+
+.App-logo {
+  margin: 10px;
+}
+
+.App-logo img {
+  height: 100%;
+  float: right;
+}
+
+.App-title {
+  text-align: left;
+  text-overflow: ellipsis;
+}
+.App-title a {
+  color: white;
+  padding-right: 10px;
+}
+
+.App-title h1 {
+  font-size: 1.5em;
+  font-family: 'Lato';
+}
+
+.App-title p {
+  font-family: 'Merriweather';
+}
+
+.App-footer {
+  position: relative;
+  background: #333;
+  color: #777;
+  height: 50px;
+  padding: 17px;
+}
+.App-footer a {
+  color: #777;
+}

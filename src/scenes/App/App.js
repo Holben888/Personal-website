@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import '../styles/App.css';
-import Section from './Section';
-import Header from './Header';
+import './App.css';
+import Section from '../Section/Section';
+import Header from '../../components/Header';
+import ScrollPointer from '../../components/ScrollPointer';
 import "animate.css/animate.min.css";
 
 const SECTION_HEIGHT = 500;
@@ -10,6 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      scrolled: false,
       sections: [{
         title: 'Education',
         content: "With Codecademy sparking my coding interest in middle school, I was motivated to pursue GUI projects in Java throughout high school and eventually conduct a thesis study based in Android. Pursuing a CS degree was the natural next step, with GA Tech quickly becoming my new home. I recently completed C++ and ROS training to become a valuable member of the RoboJackets robotics team. I also participated in the popular HackGT hackathon on campus, along with several seminars on mobile app development.",
@@ -126,9 +128,19 @@ class App extends Component {
     if (somethingChanged)
       this.setState(() => {
         return {
-          sections: sections
+          sections: sections,
+          scrolled: true,
+          animationDone: true
         }
       })
+  }
+  animationDone() {
+    var promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(true);
+      }, 2000);
+    });
+    return promise;
   }
   enableScroll() {
     function preventDefault(e) {
@@ -169,16 +181,19 @@ class App extends Component {
   }
   componentDidMount() {
     this.disableScroll()
-    var _this = this
     window.onscroll = () => this.handleScroll()
-    setTimeout(() => {
-      window.scrollTo(0, (window.pageYOffset || document.documentElement.scrollTop) + 1)
-      _this.enableScroll()
-    }, 2000)
+    this.timeoutId = setTimeout(function () {
+      this.enableScroll()
+    }.bind(this), 1500);
+  }
+  componentWillUnmount() {
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+    }
   }
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         <Header />
         <div style={{ height: this.state.sections.length * SECTION_HEIGHT + 'px' }}>
           {this.state.sections.map((section, index) => {
@@ -187,6 +202,7 @@ class App extends Component {
             )
           })}
         </div>
+        <ScrollPointer scrolled={this.state.scrolled} />
         <footer className="App-footer">Created using ReactJS. <a href="https://github.com/Holben888/personal-website">View on GitHub</a></footer>
       </div>
     );

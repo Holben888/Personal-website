@@ -60,6 +60,14 @@
   -moz-animation-delay: 0.25s;
 }
 
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .Section-cover {
+    height: 0;
+    width: 0;
+    display: none;
+  }
+}
+
 .Panel {
   width: 275px !important;
   text-align: center;

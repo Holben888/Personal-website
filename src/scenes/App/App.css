@@ -1,0 +1,25 @@
+
+@import url('https://fonts.googleapis.com/css?family=Lato:900|Merriweather:300i');
+
+* {
+  box-sizing: border-box;
+}
+.App {
+  text-align: center;
+  overflow: auto;
+}
+.App.no-scroll {
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.App-footer {
+  position: relative;
+  background: #333;
+  color: #777;
+  height: 50px;
+  padding: 17px;
+}
+.App-footer a {
+  color: #777;
+}

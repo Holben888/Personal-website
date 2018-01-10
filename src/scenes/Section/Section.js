@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 // import ScrollAnimation from 'react-animate-on-scroll';
-import "animate.css/animate.min.css";
-import "../styles/Section.css";
+import "./Section.css";
 import { Textfit } from 'react-textfit';
 
 class Panel extends Component {

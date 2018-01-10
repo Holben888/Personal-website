@@ -1,0 +1,145 @@
+
+@import url('https://fonts.googleapis.com/css?family=Lato:900|Merriweather:300i');
+
+* {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+}
+
+.Section {
+  width: 100%;
+  height: 500px;
+  z-index: 1;
+  float: left;
+  display: flex;
+  position: relative;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  justify-content: left;
+  border-bottom: 1px solid #eee;
+
+  -webkit-overflow-scrolling: touch;
+  animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+}
+
+.Section-item {
+  height: 400px;
+  max-width: 300px;
+  align-self: center;
+  text-align: left;
+  flex: 0 0 auto;
+  margin: 20px;
+
+  animation-delay: 0.5s;
+  -webkit-animation-delay: 0.5s;
+  -moz-animatiom-delay: 0.5s;
+}
+
+.Section-cover {
+  width: 100%;
+  height: 500px;
+  background: url('/images/paper.jpg') no-repeat center;
+  background-color: #ccc;
+  height: auto;
+  box-shadow: 2px 0 5px #999;
+  position: absolute;
+
+  font-family: 'Sketch';
+  font-size: 4em;
+  line-height: 500px;
+  color: #bbb;
+
+  animation-duration: 0.5s;
+  animation-delay: 0.25s;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-delay: 0.25s;
+  -moz-animation-duration: 0.5s;
+  -moz-animation-delay: 0.25s;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .Section-cover {
+    height: 0;
+    width: 0;
+    display: none;
+  }
+}
+
+.Panel {
+  width: 275px !important;
+  text-align: center;
+  box-shadow: 0 0 5px #bbb;
+  position: relative;
+  margin-right: 10px;
+  background: rgba(256, 256, 256, 0.7);
+}
+
+.Panel img {
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+}
+
+.Panel-btn-container {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  flex: 0 1 auto;
+  align-items: stretch;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+}
+
+.Panel-btn {
+  flex: 1 0 auto;
+  font-size: 0.9em;
+  color: white;
+  text-decoration: none;
+  font-size: 0.8em;
+}
+
+.Panel-btn img {
+  height: 1.4em;
+  margin-top: -.2em;
+  padding-right: 5px;
+  width: auto;
+  vertical-align: middle;
+}
+
+.Panel-btn p {
+  display: inline-block;
+}
+
+.Section-item h1 {
+  font-family: 'Lato', 'sans-serif'; font-weight:900;
+  padding: 0px;
+  margin-top: 0;
+  margin-bottom: 7px;
+  font-size: 1.25em;
+}
+
+.Section-item .sublabel {
+  font-family: 'Merriweather', 'serif'; font-weight:300; font-style:italic;
+  font-size: 0.75em;
+  padding: 0px;
+  margin: 7px;
+}
+
+.Section-item .content {
+  font-family: 'Merriweather', 'serif'; font-weight:300; font-style:italic;
+  height: 140px;
+  padding: 0 10px;
+}
+.Section-item .content.tall {
+  height: 220px;
+}
+
+@font-face {
+  font-family: 'Sketch';
+  src: url('/fonts/Artist_Script.otf');
+  font-weight: 100;
+}

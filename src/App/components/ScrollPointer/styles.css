@@ -1,0 +1,25 @@
+
+
+.Scroll-pointer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  z-index: 999;
+}
+.animated.delayed {
+  animation-delay: 1.5s;
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s;
+}
+.Scroll-pointer .label {
+  font-weight: 100;
+  margin: 0;
+}
+.Scroll-pointer .chevron {
+  font-size: 2em;
+  font-weight: 500;
+  -webkit-text-stroke: 2px white;
+  margin: 0 0 5px 0;
+}

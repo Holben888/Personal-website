@@ -29,7 +29,7 @@ class Panel extends Component {
             <div className="Section-item Panel animated fadeInUp" style={this.getDelay(this.props.index)}>
                 <img src={this.props.info.img} alt="" />
                 <h1>{this.props.info.label}</h1>
-                <p className="sublabel">{this.props.info.sublabel}</p>
+                {this.props.info.sublabel && <p className="sublabel">{this.props.info.sublabel}</p>}
                 <Textfit mode="multi" className={this.props.info.tall ? 'content tall' : 'content'}>
                     {this.props.info.content}
                 </Textfit>

@@ -44,7 +44,7 @@ class App extends Component {
         }, {
           img: '/images/Binder_screenshot.png',
           label: 'Project Binder',
-          content: "A HackGT Project created with two fellow developers using Android Studio, the OpenCV library, and the Evernote API. Meant as a utility for students, this app allows one to input their class schedule for the week. At the end of each class, an notification appears allowing one to take a picture of that day's notes to upload to their Evernote notebooks. OpenCV automatically crops the scanned image to only feature the notebook page in the final image.",
+          content: "A HackGT Project created with two fellow developers using Android Studio, OpenCV, and the Evernote API. Meant for students, this app allows one to input their class schedule for the week. At the end of each class, a notification appears allowing one to take a picture of that day's notes to upload to Evernote. OpenCV automatically crops the scanned image to only feature the notebook page.",
           buttons: [{
             type: 'Devpost',
             link: 'https://devpost.com/software/project-binder'
@@ -115,9 +115,9 @@ class App extends Component {
   handleScroll() {
     let sections = this.state.sections
     let somethingChanged = false
-    let scrollOffset = window.innerHeight + window.pageYOffset
+    let scrollOffset = window.innerHeight + (window.pageYOffset || document.documentElement.scrollTop)
     for (const [index, section] of sections.entries()) {
-      let elementOffset = window.innerHeight / 2 + (index + 1) * SECTION_HEIGHT
+      let elementOffset = window.innerHeight / 3 + (index + 1) * SECTION_HEIGHT
       if (scrollOffset >= elementOffset && !section.visible) {
         section.visible = true
         somethingChanged = true
@@ -130,8 +130,51 @@ class App extends Component {
         }
       })
   }
+  enableScroll() {
+    function preventDefault(e) {
+      e = e || window.event;
+      if (e.preventDefault)
+        e.preventDefault();
+      e.returnValue = false;
+    }
+
+
+    if (window.removeEventListener)
+      window.removeEventListener('DOMMouseScroll', preventDefault, false);
+    window.onmousewheel = document.onmousewheel = null;
+    window.onwheel = null;
+    window.ontouchmove = null;
+    document.onkeydown = null;
+  }
+  disableScroll() {
+    var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
+    function preventDefault(e) {
+      e = e || window.event;
+      if (e.preventDefault)
+        e.preventDefault();
+      e.returnValue = false;
+    }
+
+    if (window.addEventListener) // older FF
+      window.addEventListener('DOMMouseScroll', preventDefault, false);
+    window.onwheel = preventDefault; // modern standard
+    window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+    window.ontouchmove = preventDefault;
+    document.onkeydown = (e) => {
+      if (keys[e.keyCode]) {
+        preventDefault(e);
+        return false;
+      }
+    }
+  }
   componentDidMount() {
+    this.disableScroll()
+    var _this = this
     window.onscroll = () => this.handleScroll()
+    setTimeout(() => {
+      window.scrollTo(0, (window.pageYOffset || document.documentElement.scrollTop) + 1)
+      _this.enableScroll()
+    }, 2000)
   }
   render() {
     return (

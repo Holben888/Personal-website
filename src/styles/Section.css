@@ -107,22 +107,27 @@
 }
 
 .Section-item h1 {
-  font-family: 'Lato', 'sans-serif' !important;
+  font-family: 'Lato', 'sans-serif'; font-weight:900;
+  padding: 0px;
+  margin-top: 0;
+  margin-bottom: 7px;
   font-size: 1.25em;
 }
 
 .Section-item .sublabel {
-  font-family: 'Merriweather', 'serif' !important;
+  font-family: 'Merriweather', 'serif'; font-weight:300; font-style:italic;
   font-size: 0.75em;
+  padding: 0px;
+  margin: 7px;
 }
 
 .Section-item .content {
-  font-family: 'Merriweather', 'serif' !important;
-  height: 120px;
+  font-family: 'Merriweather', 'serif'; font-weight:300; font-style:italic;
+  height: 140px;
   padding: 0 10px;
 }
 .Section-item .content.tall {
-  height: 160px;
+  height: 220px;
 }
 
 @font-face {
